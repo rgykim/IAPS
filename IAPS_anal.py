@@ -97,7 +97,7 @@ def key_dict(s):
 				'h' : 6,
 				'j' : 7,
 				'k' : 8,
-				'l' : 9 	}.get(s.lower(), ValueError("INVALID ALPHA RESPONSE KEY"))
+				'l' : 9 	}.get(s.lower(), '')
 
 def run_analysis(arr):
 	error_files = []
