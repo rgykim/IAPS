@@ -45,6 +45,7 @@ def analysis(in_file):
 		n = ref_img_list.index(row['stimFile'][ :row['stimFile'].index('.jpg')])
 		row.update({x : reference[n][y] for x, y in zip(new_fields, ref_fields)})
 
+		row[var[0]] = str_conv(row[var[0]], key_dict)
 		row[var[0]] = str_conv(row[var[0]], int)
 		row[var[1]] = str_conv(row[var[1]], float)
 		row[var[2]] = str_conv(row[var[2]], key_dict)
