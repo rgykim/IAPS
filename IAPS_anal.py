@@ -46,7 +46,6 @@ def analysis(in_file):
 		row.update({x : reference[n][y] for x, y in zip(new_fields, ref_fields)})
 
 		row[var[0]] = str_conv(row[var[0]], key_dict)
-		row[var[0]] = str_conv(row[var[0]], int)
 		row[var[1]] = str_conv(row[var[1]], float)
 		row[var[2]] = str_conv(row[var[2]], key_dict)
 		row[var[3]] = str_conv(row[var[3]], float)
@@ -90,15 +89,18 @@ def avg_col(arr, var, match, *case):
 	return float(sum(temp))/float(len(temp))
 
 def key_dict(s):
-	return 	{	'a' : 1,
-				's' : 2,
-				'd' : 3,
-				'f' : 4,
-				'g' : 5,
-				'h' : 6,
-				'j' : 7,
-				'k' : 8,
-				'l' : 9 	}.get(s.lower(), '')
+	try:
+		return int(s)
+	except ValueError:
+		return 	{	'a' : 1,
+					's' : 2,
+					'd' : 3,
+					'f' : 4,
+					'g' : 5,
+					'h' : 6,
+					'j' : 7,
+					'k' : 8,
+					'l' : 9 	}.get(s.lower(), '')
 
 def run_analysis(arr):
 	error_files = []
